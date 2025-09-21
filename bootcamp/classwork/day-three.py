@@ -15,3 +15,17 @@ def program_time(n: int):
     time.sleep(n)
 
 program_time("5")
+
+# Define decorate with dictionary unpacking
+DEFAULTS = {
+    "host": "localhost",
+    "port": 8080,
+    "debug": False,
+    "timeout": 30,
+}
+
+def build_config(**kwargs):
+    return {**DEFAULTS, **kwargs}
+
+new_dict = build_config(port=9090, debug=True)
+print(new_dict)
